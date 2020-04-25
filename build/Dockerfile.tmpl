@@ -1,7 +1,8 @@
-FROM golang:1.13-alpine
+FROM golang:%%GOLANG_VERSION%%-alpine
 
 RUN apk update && apk upgrade \
  && apk add --no-cache \
+    bash \
     curl \
     gcc \
     git \
@@ -13,3 +14,5 @@ RUN apk update && apk upgrade \
  && rm -rf /tmp/*
 
 WORKDIR /app
+
+CMD ["/bin/bash"]
