@@ -2,12 +2,12 @@ IMAGE_LINT = spacetabio/docker-linter-golang
 IMAGE_TEST = spacetabio/docker-test-golang
 IMAGE_BUILD = spacetabio/docker-build-golang
 IMAGE_BASE = spacetabio/docker-base-golang
-VERSION_LINT = 1.0.4
+VERSION_LINT = 1.0.5
 VERSION_TEST = 1.0.2
 VERSION_BUILD = 1.1.2
 VERSION_BASE = 1.0.3
 GOLANG_VERSIONS=1.12 1.13 1.14
-GOLANGCI_VERSION=v1.24.0
+GOLANGCI_VERSION=v1.25.0
 
 
 build-linter-image:
