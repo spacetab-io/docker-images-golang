@@ -1,7 +1,11 @@
 FROM golang:%%GOLANG_VERSION%%-alpine
 
 RUN apk update && apk upgrade \
- && apk add git gcc libc-dev \
+ && apk add \
+    bash \
+    git \
+    gcc \
+    libc-dev \
  && rm -rf /var/cache/apk/* \
  && rm -rf /tmp/* \
  && wget -O - -q https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s %%GOLANGCI_VERSION%% \
@@ -11,4 +15,4 @@ WORKDIR /app
 
 COPY .golangci.yml /app
 
-CMD ["golangci-lint", "run"]
+CMD ["/bin/bash"]
