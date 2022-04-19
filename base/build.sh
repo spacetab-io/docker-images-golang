@@ -3,6 +3,7 @@
 render() {
 sedStr="
   s!%%GOLANG_VERSION%%!${golang_version}!g;
+  s!%%ALPINE_VERSION%%!${ALPINE_VERSION}!g;
 "
 
 sed -r "$sedStr" $1

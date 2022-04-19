@@ -3,8 +3,9 @@ docker-images-golang
 
 Images for docker containers:
 
-* [Lint environment](linter) container is for lint golang app source code. 
-Uses [golangci-lint](https://github.com/golangci/golangci-lint) to lint code with [custom config](lint/.golangci.yml). 
+* [Lint environment](linter) container is for lint golang app source code.
+  Uses [golangci-lint](https://github.com/golangci/golangci-lint) to lint code
+  with [custom config](https://github.com/spacetab-io/linter-go).
 * [Test environment](test) container is for testing golang app. Has all things to test golang sources with `go test`. 
 * [Build environment](build) container is for building golang app. Has all things to build golang app with go modules. 
 * [Base environment](base) container is for running golang app. Has all things to run binaries in formalized application 
@@ -83,7 +84,7 @@ RUN make test
 
 MIT License
 
-Copyright (c) 2021 Spacetab.io
+Copyright (c) 2022 Spacetab.io
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "
 Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish,

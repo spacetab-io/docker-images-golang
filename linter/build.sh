@@ -3,8 +3,8 @@
 render() {
 sedStr="
   s!%%GOLANG_VERSION%%!${golang_version}!g;
-  s!%%GOLANGCI_VERSION%%!$GOLANGCI_VERSION!g;
-  s!%%GOLANGCI_CONFIG_VERSION%%!$GOLANGCI_CONFIG_VERSION!g;
+  s!%%GOLANGCI_VERSION%%!${GOLANGCI_VERSION}!g;
+  s!%%GOLANGCI_CONFIG_VERSION%%!${GOLANGCI_CONFIG_VERSION}!g;
 "
 
 sed -r "$sedStr" $1

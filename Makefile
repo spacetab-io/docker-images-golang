@@ -1,14 +1,24 @@
+# Available golang versions to build images
+GOLANG_VERSIONS=1.12 1.13 1.14 1.15 1.16 1.17
+
+# Linter images data
 IMAGE_LINT = spacetabio/docker-linter-golang
+VERSION_LINT = 1.0.9 # increment it if golangci-lint params will changed
+GOLANGCI_VERSION=v1.45.2
+GOLANGCI_CONFIG_VERSION=v1.0.0
+
+# Test images data
 IMAGE_TEST = spacetabio/docker-test-golang
-IMAGE_BUILD = spacetabio/docker-build-golang
-IMAGE_BASE = spacetabio/docker-base-golang
-VERSION_LINT = 1.0.8
 VERSION_TEST = 1.0.3
+
+# Build images data
+IMAGE_BUILD = spacetabio/docker-build-golang
 VERSION_BUILD = 1.1.4
-VERSION_BASE = 1.0.5
-GOLANG_VERSIONS=1.12 1.13 1.14 1.15 1.16
-GOLANGCI_VERSION=v1.38.0
-GOLANGCI_CONFIG_VERSION=v1.0.0-rc1
+
+# Base images data
+IMAGE_BASE = spacetabio/docker-base-golang
+VERSION_BASE = 1.0.6 # increment it if alpine version will changed
+ALPINE_VERSION = 3.15
 
 
 build-linter-image:
@@ -37,6 +47,7 @@ build-build-image:
 build-base-image:
 	cd ./base && \
     	GOLANG_VERSIONS="${GOLANG_VERSIONS}" \
+    	ALPINE_VERSION="${ALPINE_VERSION}" \
     	IMAGE="${IMAGE_BASE}" \
     	VERSION="${VERSION_BASE}" \
     	./build.sh
@@ -70,3 +81,8 @@ push-base-image:
 push-all: push-linter-image push-test-image push-build-image push-base-image
 
 all: build-all push-all
+
+all-for-base: build-base-image push-base-image
+all-for-build: build-build-image push-build-image
+all-for-linter: build-linter-image push-linter-image
+all-for-test: build-test-image push-test-image
