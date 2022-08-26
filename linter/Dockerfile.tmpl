@@ -9,10 +9,11 @@ RUN apk update && apk upgrade \
     libc-dev \
  && rm -rf /var/cache/apk/* \
  && rm -rf /tmp/* \
+RUN mkdir /app
 
 WORKDIR /app
 
-RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- %%GOLANGCI_VERSION%% \
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin %%GOLANGCI_VERSION%% \
  && curl -sO https://raw.githubusercontent.com/spacetab-io/linter-go/%%GOLANGCI_CONFIG_VERSION%%/.golangci.yml \
  && golangci-lint -v version
 
