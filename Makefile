@@ -3,9 +3,9 @@ GOLANG_VERSIONS=1.12 1.13 1.14 1.15 1.16 1.17
 
 # Linter images data
 IMAGE_LINT = spacetabio/docker-linter-golang
-VERSION_LINT = 1.1.1 # increment it if golangci-lint params will changed
+VERSION_LINT = 1.1.2 # increment it if golangci-lint params will changed
 GOLANGCI_VERSION=v1.49.0
-GOLANGCI_CONFIG_VERSION=v1.1.0
+GOLANGCI_CONFIG_VERSION=v1.1.1
 
 # Test images data
 IMAGE_TEST = spacetabio/docker-test-golang
